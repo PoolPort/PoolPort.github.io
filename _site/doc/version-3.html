@@ -80,17 +80,79 @@
 
                     <div id=content class=span10>
                         <div class=page-header>
-    <h2>نسخه 3 - بتا
+    <h1>نسخه 3 - بتا
         <small>مستندات نسخه 3</small>
-    </h2>
+    </h1>
 </div>
 
 <ul>
+<li><a href="#quick-start">راه اندازی سریع</a></li>
 <li><a href="#desc">توضیحات</a></li>
 <li><a href="#config">فایل تنظیمات پکیج</a></li>
 <li><a href="#connect">اتصال به درگاه</a></li>
 <li><a href="#callback">برگشت به سایت</a></li>
 </ul>
+
+<p><a name="quick-start"></a></p>
+
+<h2 id="راه-اندازی-سریع">راه اندازی سریع</h2>
+
+<p>در این بخش می‌توانید بسیار سریع پروژه خود را به درگاه متصل کنید.</p>
+
+<h3 id="نصب">نصب</h3>
+
+<p>دستور زیر را در ترمینال اجرا کنید تا PoolPort نصب شود.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport
+</code></pre></div>
+<h3 id="تنظیمات-پکیج">تنظیمات پکیج</h3>
+
+<p>حالا کدهای
+<a href="https://github.com/PoolPort/PoolPort/blob/master/poolport-sample.php" target="_blank">اینجا</a>
+را درون فایل قرار دهید. تنظیمات کاملا واضح هستند.</p>
+
+<p>نکته: پس از اولین اجرای درست پکیج، حتما مقدار <code>create</code> در <code>database</code> را برابر <code>false</code> قرار دهید.</p>
+
+<h3 id="نوشتن-کدها">نوشتن کدها</h3>
+
+<p>خب کدهای زیر را در فایل منتقل کننده به درگاه قرار دهید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
+
+<span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+    <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><p>به جای <code>P_MELLAT</code> میتوانید درگاه‌های دیگر را بنویسید: {<code>P_MELLAT</code>, <code>P_SADAD</code>, <code>P_ZARINPAL</code>, <code>P_PAYLINE</code>}</p></li>
+<li><p>در متد <code>set</code> می‌توانید هزینه را به ریال وارد کنید.</p></li>
+</ul>
+
+<p>کدهای زیر را نیز در فایل callback بنویسید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">;</span>
+    <span class="nv">$trackingCode</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">verify</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">trackingCode</span><span class="p">();</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+    <span class="nv">$cardNumber</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">cardNumber</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>تبریک میگم. اگر تنظیمات را به درستی وارد کرده باشید و درگاه شما نیز درست باشد، با موفقیت به درگاه متصل شدید.</p>
+
+<p>اطلاعات بیشتر در مورد API را می‌توانید در <a href="#">اینجا</a> مشاهده کنید.</p>
 
 <p><a name="desc"></a></p>
 
