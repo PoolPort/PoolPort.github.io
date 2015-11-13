@@ -104,5 +104,5 @@ PoolPort یک پکیج متن باز است و ما از همکاری شما د�
 ### لیست توسعه دهندگان اصلی پکیج
 
 * محسن شفیعی [Github](https://github.com/m-jch), [Email](mailto:mohsen.sh12@hotmail.com)
-* رضا زارع [Github](https://github.com/Reza1607), [Email](mailto:mohsen.sh12@hotmail.com)
+* رضا زارع [Github](https://github.com/Reza1607), [Email](mailto:rz.zare@gmail.com)
 * [و همه دوستانی که به ما در توسعه این پکیج کمک میکنند](https://github.com/PoolPort/PoolPort/graphs/contributors).
