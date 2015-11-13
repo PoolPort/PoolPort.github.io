@@ -86,73 +86,11 @@
 </div>
 
 <ul>
-<li><a href="#quick-start">راه اندازی سریع</a></li>
 <li><a href="#desc">توضیحات</a></li>
 <li><a href="#config">فایل تنظیمات پکیج</a></li>
 <li><a href="#connect">اتصال به درگاه</a></li>
 <li><a href="#callback">برگشت به سایت</a></li>
 </ul>
-
-<p><a name="quick-start"></a></p>
-
-<h2 id="راه-اندازی-سریع">راه اندازی سریع</h2>
-
-<p>در این بخش می‌توانید بسیار سریع پروژه خود را به درگاه متصل کنید.</p>
-
-<h3 id="نصب">نصب</h3>
-
-<p>دستور زیر را در ترمینال اجرا کنید تا PoolPort نصب شود.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport
-</code></pre></div>
-<h3 id="تنظیمات-پکیج">تنظیمات پکیج</h3>
-
-<p>حالا کدهای
-<a href="https://github.com/PoolPort/PoolPort/blob/master/poolport-sample.php" target="_blank">اینجا</a>
-را درون فایل قرار دهید. تنظیمات کاملا واضح هستند.</p>
-
-<p>نکته: پس از اولین اجرای درست پکیج، حتما مقدار <code>create</code> در <code>database</code> را برابر <code>false</code> قرار دهید.</p>
-
-<h3 id="نوشتن-کدها">نوشتن کدها</h3>
-
-<p>خب کدهای زیر را در فایل منتقل کننده به درگاه قرار دهید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
-
-<span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
-
-    <span class="c1">// Your code here</span>
-
-    <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
-<ul>
-<li><p>به جای <code>P_MELLAT</code> میتوانید درگاه‌های دیگر را بنویسید: {<code>P_MELLAT</code>, <code>P_SADAD</code>, <code>P_ZARINPAL</code>, <code>P_PAYLINE</code>}</p></li>
-<li><p>در متد <code>set</code> می‌توانید هزینه را به ریال وارد کنید.</p></li>
-</ul>
-
-<p>کدهای زیر را نیز در فایل callback بنویسید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
-<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
-
-<span class="k">try</span> <span class="p">{</span>
-    <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">;</span>
-    <span class="nv">$trackingCode</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">verify</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">trackingCode</span><span class="p">();</span>
-    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
-    <span class="nv">$cardNumber</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">cardNumber</span><span class="p">();</span>
-
-    <span class="c1">// Your code here</span>
-
-<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>تبریک میگم. اگر تنظیمات را به درستی وارد کرده باشید و درگاه شما نیز درست باشد، با موفقیت به درگاه متصل شدید.</p>
-
-<p>اطلاعات بیشتر در مورد API را می‌توانید در <a href="#">اینجا</a> مشاهده کنید.</p>
 
 <p><a name="desc"></a></p>
 
@@ -250,6 +188,9 @@
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
 <span class="k">try</span> <span class="p">{</span>
     <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
     <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
@@ -290,6 +231,9 @@
     <span class="nv">$trackingCode</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">verify</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">trackingCode</span><span class="p">();</span>
     <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
     <span class="nv">$cardNumber</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">cardNumber</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
 <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="p">}</span>
@@ -300,6 +244,59 @@
 <li><p>متد <code>refId</code> برای گرفتن مقدار ref id است.</p></li>
 <li><p>متد <code>cartNumber</code> برای گرفتن شماره کارت کاربر است. توجه کنید که این متد در بعضی از درگاه‌ها به دلیل پشتیبانی نکردن درگاه، مقدار خالی برمی‌گرداند.</p></li>
 </ul>
+
+<h4 id="exceptions">Exceptions</h4>
+
+<p>در زمان بازگشت کاربر به سایت، ممکن است Exception‌های مختلفی رخ بدهد:</p>
+
+<ul>
+<li>کاربر ممکن است برای دومین یا چندمین بار سعی بر ارسال داده از طرف بانک به سایت داشته باشد (<code>RetryException</code>)</li>
+<li>ممکن است اطلاعات بازگشتی درست نباشد و در اینجا ممکن است چنین درگاه‌هی در سایت موجود نباشد (<code>PortNotFoundException</code>)</li>
+<li>ممکن است اطلاعات بازگشتی به سایت درست نباشد و در اینجا ممکن است آدرس بازگشت به سایت اشتباه باشد (<code>InvalidRequestException</code>)</li>
+<li>ممکن است اطلاعات بازگشتی به سایت درست نباشد و در اینجا ممکن است چنین رکورد پرداختی موجود نباشد. (<code>NotFoundTransactionException</code>)</li>
+<li>ممکن است کاربر از انجام پرداخت منصرف شده باشد. (<code>Exception</code>)</li>
+</ul>
+
+<p>شما میتوانید تمام این Exceptionها را به صورت زیر Handle کنید:</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PoolPort\Exceptions\RetryException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PoolPort\Exceptions\PortNotFoundException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PoolPort\Exceptions\InvalidRequestException</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PoolPort\Exceptions\NotFoundTransactionException</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">;</span>
+    <span class="nv">$trackingCode</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">verify</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">trackingCode</span><span class="p">();</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+    <span class="nv">$cardNumber</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">cardNumber</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">RetryException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;RetryException&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">PortNotFoundException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;PortNotFoundException&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">InvalidRequestException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;InvalidRequestException&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">NotFoundTransactionException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;NotFoundTransactionException&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="متد-setconfig">متد setConfig</h3>
+
+<p>با استفاده از این متد می‌توانید تنظیمات درون فایل <code>poolport.php</code> را به ازای هر درخواست تغییر دهید.</p>
+
+<p>برای مثال در کد زیر آدرس callback درگاه ملت را تغییر دادیم.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
+<span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">setConfig</span><span class="p">(</span><span class="s1">&#39;mellat.callback-url&#39;</span><span class="p">,</span> <span class="s1">&#39;another url&#39;</span><span class="p">);</span>
+</code></pre></div>
+<p>توجه کنید که استفاده از این متد برای تغییر تنظیمات <code>database</code> و <code>timezone</code> تاثیری ندارد.</p>
 
 
                     </div>

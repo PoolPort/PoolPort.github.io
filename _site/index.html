@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
 
-        <title>پکیج PoolPort : پکیج IPay</title>
+        <title>پکیج PoolPort : پکیج PoolPort</title>
         <meta name="description" content="مستندات پکیج PoolPort">
 
         <link href="/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -79,48 +79,113 @@
                     </div>
 
                     <div id=content class=span10>
-                        <h2 id="پکیج-ipay">پکیج IPay</h2>
+                        <h1 id="پکیج-poolport">پکیج PoolPort</h1>
 
 <ul>
-<li><a href="#what-is-ipay">IPay چیست؟</a></li>
-<li><a href="#setup">نصب</a></li>
-<li><a href="#bank-support">بانک‌ها و درگاه‌های پشتیبانی کننده</a></li>
+<li><a href="#what-is-poolport">PoolPort چیست؟</a></li>
+<li><a href="#version-3">نسخه 3</a></li>
+<li><a href="#quick-start">راه‌اندازی سریع</a></li>
+<li><a href="#developers">توسعه دهندگان</a></li>
 </ul>
 
-<p><a name="what-is-ipay"></a></p>
+<p><a name="what-is-poolport"></a></p>
 
-<h3 id="ipay-چیست؟">IPay چیست؟</h3>
+<h2 id="poolport-چیست؟">PoolPort چیست؟</h2>
 
-<p>پکیج IPay یک پکیج Composer برای زبان PHP است و در تمام پروژه های PHP قابل استفاده است. این پکیج برای برقراری با درگاه های بانک های مختلف است. با استفاده از این پکیج میتوانید به تمام درگاه هایی که در این پکیج پشتیبانی میشوند با یک API یکسان دسترسی داشته باشید.</p>
+<p>پکیج PoolPort یک پکیج Composer برای زبان PHP است و در تمام پروژه های PHP قابل استفاده است. این پکیج برای برقراری با درگاه های بانک های مختلف است. با استفاده از این پکیج میتوانید به تمام درگاه هایی که در این پکیج پشتیبانی میشوند با یک API یکسان دسترسی داشته باشید.</p>
 
-<p>این پکیج متن باز است و شما هم میتوانید در توسعه این پکیج همکاری داشته باشید. اگر جای خالی یک بانک یا درگاه را میبینید، یا خودتان دست به کار شوید و آن را به پکیج اضافه کنید، یا اطلاعاتتان را در اختیار ما بگذارید تا بانک مورد نظر شما را نیز به این پکیج اضافه کنیم.</p>
+<p><a name="version-3"></a></p>
 
-<p>هر گونه خطا و پیشنهادی که داشتید، لطفا در قسمت <a href="https://github.com/mohsen-shafiee/IPay/issues">Issues</a> سایت Github مطرح کنید.</p>
+<h2 id="نسخه-3">نسخه 3</h2>
 
-<p><a name="setup"></a></p>
+<p>ما واقعا برای انتشار نسخه 3 هیجان زده هستیم. این نسخه تغییرات زیادی نسبت به نسخه‌های پیشین داشته و استفاده از این نسخه بسیار راحت است.</p>
+
+<p>در حال حاظر ما در نسخه بتا ورژن 3 هستیم. لطفا برای کمک به این پکیج، این کتابخانه را در نصب و خطاهای آن را در قسمت <a href="https://github.com/mohsen-shafiee/IPay/issues">Issues</a> پکیج گزارش دهید تا برای انتشار نسخه 3 آماده شویم.</p>
+
+<p><a name="quick-start"></a></p>
+
+<h2 id="راه-اندازی-سریع">راه اندازی سریع</h2>
+
+<p>در این بخش می‌توانید بسیار سریع پروژه خود را به درگاه متصل کنید.</p>
+
+<p><strong><em>نکته مهم: پکیج در حال حاظر در نسخه بتا است، لطفا در محیط Production از آن استفاده نکنید.</em></strong></p>
 
 <h3 id="نصب">نصب</h3>
 
-<p>ابتدا کد زیر را به قسمت <code>require</code> فایل <code>composer.json</code> پروژه اضافه کنید:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="x">&quot;mohsen/ipay&quot;: &quot;&gt;=2.0.0&quot;</span>
+<p>دستور زیر را در ترمینال اجرا کنید تا PoolPort نسخه بتا نصب شود.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport:v3.0.0-beta1
 </code></pre></div>
-<p>سپس دستور <code>composer update</code> را اجرا کنید. حالا به مستندات نسخه نصب شده پکیج بروید و ادامه کار را دنبال کنید.</p>
+<h3 id="تنظیمات-پکیج">تنظیمات پکیج</h3>
 
-<h4 id="نکته">نکته</h4>
+<p>فایلی با نام <code>poolport.php</code> را در کنار پوشه <code>vendor</code> ایجاد کرده و درون آن کدهای موجود در
+<a href="https://github.com/PoolPort/PoolPort/blob/master/poolport-sample.php" target="_blank">این صفحه</a>
+را قرار دهید.</p>
 
-<p>همیشه سعی کنید که آخرین نسخه پکیج را نصب داشته باشید.</p>
+<p>تنظیمات واضح هستند. به هر درگاه‌یی که میخواهید متصل شوید، ابتدا تنظیمات آن را در این فایل پر کنید.</p>
 
-<p><a name="bank-support"></a></p>
+<p>نکته: پس از اولین اجرای درست پکیج، حتما مقدار <code>create</code> در <code>database</code> را برابر <code>false</code> قرار دهید.</p>
 
-<h3 id="بانک‌ها-و-درگاه‌های-پشتیبانی-کننده">بانک‌ها و درگاه‌های پشتیبانی کننده</h3>
+<h3 id="نوشتن-کدها">نوشتن کدها</h3>
 
-<h4 id="نکته">نکته</h4>
+<p>خب کدهای زیر را در فایل منتقل کننده به درگاه قرار دهید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 
-<p>لیست زیر همیشه برای آخرین نسخه پکیج است.</p>
+<span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+    <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<ul>
+<li><p>به جای <code>P_MELLAT</code> میتوانید درگاه‌های دیگر را بنویسید: {<code>P_MELLAT</code>, <code>P_SADAD</code>, <code>P_ZARINPAL</code>, <code>P_PAYLINE</code>}</p></li>
+<li><p>در متد <code>set</code> می‌توانید هزینه را به ریال وارد کنید.</p></li>
+</ul>
+
+<p>کدهای زیر را نیز در فایل callback بنویسید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">;</span>
+    <span class="nv">$trackingCode</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">verify</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">trackingCode</span><span class="p">();</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+    <span class="nv">$cardNumber</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">cardNumber</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>تبریک میگم. اگر تنظیمات را به درستی وارد کرده باشید و درگاه شما نیز درست باشد، با موفقیت به درگاه متصل شدید.</p>
+
+<p>اطلاعات بیشتر در مورد API را می‌توانید در <a href="./doc/version-3.html">اینجا</a> مشاهده کنید.</p>
+
+<p><a name="developers"></a></p>
+
+<h2 id="توسعه-دهندگان">توسعه دهندگان</h2>
+
+<p>PoolPort یک پکیج متن باز است و ما از همکاری شما در توسعه این پکیج به شدت استقبال میکنیم. شما می‌توانید از یکی از راه‌های زیر به توسعه بیشتر این پکیج کمک کنید:</p>
 
 <ul>
-<li>بانک ملت</li>
-<li>درگاه زرین پال</li>
+<li>نصب PoolPort و گزارش خطاها و پیشنهادات</li>
+<li>بهبود مستندات پکیج</li>
+<li>همکاری در نوشتن کدهای اصلی پکیج</li>
+<li>پورت کردن PoolPort به سیستم‌های دیگر نظیر وردپرس</li>
+</ul>
+
+<h3 id="لیست-توسعه-دهندگان-اصلی-پکیج">لیست توسعه دهندگان اصلی پکیج</h3>
+
+<ul>
+<li>محسن شفیعی <a href="https://github.com/m-jch">Github</a>, <a href="mailto:mohsen.sh12@hotmail.com">Email</a></li>
+<li>رضا زارع <a href="https://github.com/Reza1607">Github</a>, <a href="mailto:mohsen.sh12@hotmail.com">Email</a></li>
+<li><a href="https://github.com/PoolPort/PoolPort/graphs/contributors">و همه دوستانی که به ما در توسعه این پکیج کمک میکنند</a>.</li>
 </ul>
 
                     </div>
