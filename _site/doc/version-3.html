@@ -110,6 +110,7 @@
 
 <p>در این فایل شما میتوانید تمام اطلاعات و تنظیمات مورد نیاز برای پکیج را وارد کنید. مسیر پیشفرض فایل در کنار پوشه <code>vendor</code> و با نام <code>poolport.php</code> است، اما شما میتوانید این فایل را در هر مسیری که میخواهید قرار بدهید و آدرس را در هنگام ساخت شی از کلاس به <code>PoolPort</code> بدهید.</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
 <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
 
     <span class="c1">//-------------------------------</span>
@@ -168,7 +169,23 @@
         <span class="s1">&#39;transactionKey&#39;</span><span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
         <span class="s1">&#39;terminalId&#39;</span>    <span class="o">=&gt;</span> <span class="mo">000000000</span><span class="p">,</span>
         <span class="s1">&#39;callback-url&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
-    <span class="p">)</span>
+    <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// JahanPay gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;jahanpay&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;api&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Parsian gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;parsian&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;pin&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
 <span class="p">);</span>
 </code></pre></div>
 <ul>
