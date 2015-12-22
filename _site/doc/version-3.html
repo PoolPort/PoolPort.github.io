@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width">
 
-        <title>پکیج PoolPort : نسخه 3 - بتا</title>
+        <title>پکیج PoolPort : نسخه 3</title>
         <meta name="description" content="مستندات پکیج PoolPort">
 
         <link href="/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
@@ -38,7 +38,7 @@
             
                 <li class=nav-header>مستندات</li>
             
-            <li data-order=""><a href="/doc/version-3.html">نسخه 3 - بتا</a></li>
+            <li data-order=""><a href="/doc/version-3.html">نسخه 3</a></li>
         
             
             <li data-order=""><a href="/doc/version-2.html">نسخه 2</a></li>
@@ -80,7 +80,7 @@
 
                     <div id=content class=span10>
                         <div class=page-header>
-    <h1>نسخه 3 - بتا
+    <h1>نسخه 3
         <small>مستندات نسخه 3</small>
     </h1>
 </div>
@@ -95,10 +95,6 @@
 <p><a name="desc"></a></p>
 
 <h3 id="توضیحات">توضیحات</h3>
-
-<ul>
-<li>این نسخه در حال توسعه می‌باشد. لطفا از این نسخه در محیط Production استفاده نکنید.</li>
-</ul>
 
 <p>در نسخه شماره سه ما تغییرات خیلی زیادی داشتیم، از نام پکیج گرفته تا نحوه کار آن. در این نسخه نام پکیج از IPay به PoolPort تغییر کرد.
 همچنین نحوه کار با درگاه‌ها بسیار ساده شده است، بطوریکه تنها با یک API یکسان می‌توانید به تمام درگاه‌های موجود در پکیج متصل شوید.
@@ -217,10 +213,12 @@
 <li><p>در کد بالا به درگاه بانک ملت متصل می‌شوید. برای متصل شدن به درگاه‌های دیگر باید مقدار پارامتر اول را در هنگام ساختن کلاس تغییر دهید:</p>
 
 <ul>
-<li>P_MELLAT =&gt; برای بانک ملت</li>
-<li>P_SADAD =&gt; برای بانک ملی</li>
-<li>P_ZARINPAL =&gt; برای درگاه زرین پال</li>
-<li>P_PAYLINE =&gt; برای درگاه پی‌لاین</li>
+<li>بانک ملت <code>P_MELLAT</code></li>
+<li>بانک ملی با عنوان سداد <code>P_SADAD</code></li>
+<li>بانک پارسیان - <span style="color:red">تست نشده</span> <code>P_PARSIAN</code></li>
+<li>درگاه زرین پال <code>P_ZARINPAL</code></li>
+<li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
+<li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
 </ul></li>
 <li><p>اگر فایل تنظیمات را در محل پیشفرض قرار ندادید میتوانید، آدرس آن را به عنوان پارامتر دوم در هنگام ساختن کلاس بدهید.</p></li>
 </ul>
@@ -315,6 +313,23 @@
 </code></pre></div>
 <p>توجه کنید که استفاده از این متد برای تغییر تنظیمات <code>database</code> و <code>timezone</code> تاثیری ندارد.</p>
 
+<h3 id="متد-transactionid">متد transactionId</h3>
+
+<p>توسط این متد می‌توانید آی‌دی متناظر transaction را در جدول <code>poolport_transactions</code> بدست آورید.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+
+<span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$refId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">refId</span><span class="p">();</span>
+    <span class="nv">$transactionId</span> <span class="o">=</span> <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">transactionId</span><span class="p">();</span>
+
+    <span class="c1">// Your code here</span>
+
+    <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div>
 
                     </div>
                 

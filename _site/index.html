@@ -38,7 +38,7 @@
             
                 <li class=nav-header>مستندات</li>
             
-            <li data-order=""><a href="/doc/version-3.html">نسخه 3 - بتا</a></li>
+            <li data-order=""><a href="/doc/version-3.html">نسخه 3</a></li>
         
             
             <li data-order=""><a href="/doc/version-2.html">نسخه 2</a></li>
@@ -99,9 +99,11 @@
 
 <h2 id="نسخه-3">نسخه 3</h2>
 
-<p>ما واقعا برای انتشار نسخه 3 هیجان زده هستیم. این نسخه تغییرات زیادی نسبت به نسخه‌های پیشین داشته و استفاده از این نسخه بسیار راحت است.</p>
+<p>این نسخه تغییرات زیادی نسبت به نسخه‌های پیشین داشته و استفاده از این نسخه بسیار راحت است.</p>
 
-<p>در حال حاظر ما در نسخه بتا ورژن 3 هستیم. لطفا برای کمک به این پکیج، این کتابخانه را در نصب و خطاهای آن را در قسمت <a href="https://github.com/mohsen-shafiee/IPay/issues">Issues</a> پکیج گزارش دهید تا برای انتشار نسخه 3 آماده شویم.</p>
+<p>هر خطایی که در پکیج مشاهده کردید لطفا در صفحه <a href="https://github.com/mohsen-shafiee/IPay/issues">Issues</a> ثبت کنید.</p>
+
+<p>همچنین میتوانید در صفحه <a href="https://gitter.im/PoolPort/PoolPort">Gitter</a> در مورد این پکیج صحبت کنید.</p>
 
 <p><a name="gateway-lists"></a></p>
 
@@ -110,7 +112,7 @@
 <ul>
 <li>بانک ملت <code>P_MELLAT</code></li>
 <li>بانک ملی با عنوان سداد <code>P_SADAD</code></li>
-<li>بانک پارسیان - تست نشده <code>P_PARSIAN</code></li>
+<li>بانک پارسیان - <span style="color:red">تست نشده</span> <code>P_PARSIAN</code></li>
 <li>درگاه زرین پال <code>P_ZARINPAL</code></li>
 <li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
 <li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
@@ -122,12 +124,10 @@
 
 <p>در این بخش می‌توانید بسیار سریع پروژه خود را به درگاه متصل کنید.</p>
 
-<p><strong><em>نکته مهم: پکیج در حال حاظر در نسخه بتا است، لطفا در محیط Production از آن استفاده نکنید.</em></strong></p>
-
 <h3 id="نصب">نصب</h3>
 
 <p>دستور زیر را در ترمینال اجرا کنید تا PoolPort نسخه بتا نصب شود.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport:v3.0.0-beta1
+<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport:~v3
 </code></pre></div>
 <h3 id="تنظیمات-پکیج">تنظیمات پکیج</h3>
 
