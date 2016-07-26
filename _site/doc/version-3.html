@@ -94,7 +94,7 @@
 
 <p><a name="desc"></a></p>
 
-<h3 id="توضیحات">توضیحات</h3>
+<h3>توضیحات</h3>
 
 <p>در نسخه شماره سه ما تغییرات خیلی زیادی داشتیم، از نام پکیج گرفته تا نحوه کار آن. در این نسخه نام پکیج از IPay به PoolPort تغییر کرد.
 همچنین نحوه کار با درگاه‌ها بسیار ساده شده است، بطوریکه تنها با یک API یکسان می‌توانید به تمام درگاه‌های موجود در پکیج متصل شوید.
@@ -102,7 +102,7 @@
 
 <p><a name="config"></a></p>
 
-<h3 id="فایل-تنظیمات-پکیج">فایل تنظیمات پکیج</h3>
+<h3>فایل تنظیمات پکیج</h3>
 
 <p>در این فایل شما میتوانید تمام اطلاعات و تنظیمات مورد نیاز برای پکیج را وارد کنید. مسیر پیشفرض فایل در کنار پوشه <code>vendor</code> و با نام <code>poolport.php</code> است، اما شما میتوانید این فایل را در هر مسیری که میخواهید قرار بدهید و آدرس را در هنگام ساخت شی از کلاس به <code>PoolPort</code> بدهید.</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
@@ -192,7 +192,7 @@
 
 <p><a name="connect"></a></p>
 
-<h3 id="اتصال-به-درگاه">اتصال به درگاه</h3>
+<h3>اتصال به درگاه</h3>
 
 <p>تنها با استفاده از کد زیر میتوانید به درگاه مورد نظر متصل شوید:</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
@@ -215,7 +215,9 @@
 <ul>
 <li>بانک ملت <code>P_MELLAT</code></li>
 <li>بانک ملی با عنوان سداد <code>P_SADAD</code></li>
+<li>بانک صادرات <code>P_SADERAT</code></li>
 <li>بانک پارسیان - <span style="color:red">تست نشده</span> <code>P_PARSIAN</code></li>
+<li>بانک پاسارگاد - <span style="color:red">تست نشده</span> <code>P_PASARGAD</code></li>
 <li>درگاه زرین پال <code>P_ZARINPAL</code></li>
 <li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
 <li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
@@ -235,7 +237,7 @@
 
 <p><a name="callback"></a></p>
 
-<h3 id="برگشت-به-سایت">برگشت به سایت</h3>
+<h3>برگشت به سایت</h3>
 
 <p>بعد از برگشت کاربر به سایت، تنها با استفاده از کد زیر می‌توانید عملیات پرداخت را تایید کنید.</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
@@ -260,7 +262,7 @@
 <li><p>متد <code>cartNumber</code> برای گرفتن شماره کارت کاربر است. توجه کنید که این متد در بعضی از درگاه‌ها به دلیل پشتیبانی نکردن درگاه، مقدار خالی برمی‌گرداند.</p></li>
 </ul>
 
-<h4 id="exceptions">Exceptions</h4>
+<h4>Exceptions</h4>
 
 <p>در زمان بازگشت کاربر به سایت، ممکن است Exception‌های مختلفی رخ بدهد:</p>
 
@@ -301,7 +303,7 @@
     <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="متد-setconfig">متد setConfig</h3>
+<h3>متد setConfig</h3>
 
 <p>با استفاده از این متد می‌توانید تنظیمات درون فایل <code>poolport.php</code> را به ازای هر درخواست تغییر دهید.</p>
 
@@ -313,7 +315,7 @@
 </code></pre></div>
 <p>توجه کنید که استفاده از این متد برای تغییر تنظیمات <code>database</code> و <code>timezone</code> تاثیری ندارد.</p>
 
-<h3 id="متد-transactionid">متد transactionId</h3>
+<h3>متد transactionId</h3>
 
 <p>توسط این متد می‌توانید آی‌دی متناظر transaction را در جدول <code>poolport_transactions</code> بدست آورید.</p>
 <div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
