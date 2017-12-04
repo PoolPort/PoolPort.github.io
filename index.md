@@ -36,6 +36,7 @@ title: "پکیج PoolPort"
 * درگاه زرین پال ```P_ZARINPAL```
 * درگاه جهان‌پی ```P_JAHANPAY```
 * درگاه پی‌لاین ```P_PAYLINE```
+* درگاه ایران کیش ```P_IRANKISH```
 
 <a name="quick-start"></a>
 ## راه اندازی سریع

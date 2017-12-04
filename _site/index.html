@@ -118,6 +118,7 @@
 <li>درگاه زرین پال <code>P_ZARINPAL</code></li>
 <li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
 <li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
+<li>درگاه ایران کیش <code>P_IRANKISH</code></li>
 </ul>
 
 <p><a name="quick-start"></a></p>
@@ -129,7 +130,7 @@
 <h3>نصب</h3>
 
 <p>دستور زیر را در ترمینال اجرا کنید تا PoolPort نسخه بتا نصب شود.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">composer require poolport/poolport:~v3
+<div class="highlight"><pre><code class="language-text" data-lang="text"><span></span>composer require poolport/poolport:~v3
 </code></pre></div>
 <h3>تنظیمات پکیج</h3>
 
@@ -144,7 +145,7 @@
 <h3>نوشتن کدها</h3>
 
 <p>خب کدهای زیر را در فایل منتقل کننده به درگاه قرار دهید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
@@ -166,7 +167,7 @@
 </ul>
 
 <p>کدهای زیر را نیز در فایل callback بنویسید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 
 <span class="k">try</span> <span class="p">{</span>

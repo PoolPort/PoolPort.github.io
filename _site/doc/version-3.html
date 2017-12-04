@@ -105,7 +105,7 @@
 <h3>فایل تنظیمات پکیج</h3>
 
 <p>در این فایل شما میتوانید تمام اطلاعات و تنظیمات مورد نیاز برای پکیج را وارد کنید. مسیر پیشفرض فایل در کنار پوشه <code>vendor</code> و با نام <code>poolport.php</code> است، اما شما میتوانید این فایل را در هر مسیری که میخواهید قرار بدهید و آدرس را در هنگام ساخت شی از کلاس به <code>PoolPort</code> بدهید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">return</span> <span class="k">array</span><span class="p">(</span>
 
@@ -114,6 +114,13 @@
     <span class="c1">// If you want PoolPort not set timezone, just leave it empty</span>
     <span class="c1">//--------------------------------</span>
     <span class="s1">&#39;timezone&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Asia/Tehran&#39;</span><span class="p">,</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Soap configuration</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;soap&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;attempts&#39;</span> <span class="o">=&gt;</span> <span class="mi">2</span> <span class="c1">// Attempts if soap connection is fail</span>
+    <span class="p">),</span>    
 
     <span class="c1">//--------------------------------</span>
     <span class="c1">// Database configuration</span>
@@ -182,10 +189,41 @@
         <span class="s1">&#39;pin&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxxx&#39;</span><span class="p">,</span>
         <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
     <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Pasargad gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;pasargad&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;merchant-code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;9999999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;terminal-code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;999999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Saderat gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;saderat&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;merchant-id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;999999999999999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;terminal-id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;99999999&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;public-key&#39;</span> <span class="o">=&gt;</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/saderat-public-key.pem&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;private-key&#39;</span> <span class="o">=&gt;</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/saderat-private-key.pem&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// IranKish gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;irankish&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;merchant-id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;sha1-key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>    
 <span class="p">);</span>
 </code></pre></div>
 <ul>
 <li><p>اگر میخواید <code>timezone</code> توسط PoolPort تنظیم شود، این مقدار را وارد کنید، در غیر اینصورت این مقدار را خالی رها کنید.</p></li>
+<li><p>مقدار <code>attempts</code> در <code>soap</code> مشخص کننده تعداد تلاش در زمانی که ارتباط با سرور soap برقرار نمیشود، است.</p></li>
 <li><p>تنظیمات <code>database</code> برای اتصال به پایگاه داده است. در صورتی که قسمت <code>create</code> فعال (<code>true</code>) باشد، در هر بار استفاده از PoolPort، پکیج چک میکند که آیا جداول پکیج ایجاد شده است یا خیر، در صورتی که موجود نبودند، خود پکیج به صورت خودکار آنها را نصب میکند. پس توجه داشته باشید که در اولین استفاده از پکیج این گزینه را <code>true</code> کنید.</p></li>
 <li><p>دیگر قسمت‌ها نیز مخصوص هر درگاه است، که در صورت استفاده از هر کدام از آنها، ابتدا تنظیمات آن‌ها را پر کنید.</p></li>
 </ul>
@@ -195,7 +233,7 @@
 <h3>اتصال به درگاه</h3>
 
 <p>تنها با استفاده از کد زیر میتوانید به درگاه مورد نظر متصل شوید:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
@@ -221,10 +259,11 @@
 <li>درگاه زرین پال <code>P_ZARINPAL</code></li>
 <li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
 <li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
+<li>درگاه ایران کیش <code>P_IRANKISH</code></li>
 </ul></li>
 <li><p>اگر فایل تنظیمات را در محل پیشفرض قرار ندادید میتوانید، آدرس آن را به عنوان پارامتر دوم در هنگام ساختن کلاس بدهید.</p></li>
 </ul>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">,</span> <span class="s1">&#39;../../poolport.php&#39;</span><span class="p">);</span>
 </code></pre></div>
@@ -240,7 +279,7 @@
 <h3>برگشت به سایت</h3>
 
 <p>بعد از برگشت کاربر به سایت، تنها با استفاده از کد زیر می‌توانید عملیات پرداخت را تایید کنید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 <span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 
 <span class="k">try</span> <span class="p">{</span>
@@ -275,7 +314,7 @@
 </ul>
 
 <p>شما میتوانید تمام این Exceptionها را به صورت زیر Handle کنید:</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 
 <span class="k">use</span> <span class="nx">PoolPort\PoolPort</span><span class="p">;</span>
 <span class="k">use</span> <span class="nx">PoolPort\Exceptions\RetryException</span><span class="p">;</span>
@@ -308,7 +347,7 @@
 <p>با استفاده از این متد می‌توانید تنظیمات درون فایل <code>poolport.php</code> را به ازای هر درخواست تغییر دهید.</p>
 
 <p>برای مثال در کد زیر آدرس callback درگاه ملت را تغییر دادیم.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
 <span class="nv">$poolPort</span><span class="o">-&gt;</span><span class="na">setConfig</span><span class="p">(</span><span class="s1">&#39;mellat.callback-url&#39;</span><span class="p">,</span> <span class="s1">&#39;another url&#39;</span><span class="p">);</span>
@@ -318,7 +357,7 @@
 <h3>متد transactionId</h3>
 
 <p>توسط این متد می‌توانید آی‌دی متناظر transaction را در جدول <code>poolport_transactions</code> بدست آورید.</p>
-<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?php</span>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
 
 <span class="nv">$poolPort</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_MELLAT</span><span class="p">);</span>
 <span class="k">try</span> <span class="p">{</span>
