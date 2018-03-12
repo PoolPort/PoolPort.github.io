@@ -371,6 +371,15 @@
     <span class="k">echo</span> <span class="nv">$e</span><span class="o">-&gt;</span><span class="na">getMessage</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></div>
+<h3>متد setGlobalCallbackUrl</h3>
+
+<p>تنها با فراخوانی این متد میتوانید آدرس بازگشت تمام درگاه‌ها را به صورت یکجا تغییر دهید و نیازی به فراخوانی متد <code>setConfig</code> برای هر درگاه نیست.</p>
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span></span><span class="cp">&lt;?php</span>
+
+<span class="nv">$port</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PoolPort</span><span class="p">(</span><span class="nx">PoolPort</span><span class="o">::</span><span class="na">P_SIMULATOR</span><span class="p">);</span>
+<span class="nv">$port</span><span class="o">-&gt;</span><span class="na">setGlobalCallbackUrl</span><span class="p">(</span><span class="s1">&#39;another url&#39;</span><span class="p">);</span>
+<span class="nv">$port</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">ready</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">redirect</span><span class="p">();</span>
+</code></pre></div>
 
                     </div>
                 
