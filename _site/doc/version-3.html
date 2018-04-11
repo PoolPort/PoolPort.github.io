@@ -218,7 +218,29 @@
         <span class="s1">&#39;sha1-key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxxxxxxxxxxxxxxxxx&#39;</span><span class="p">,</span>
         <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
         <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
-    <span class="p">),</span>    
+    <span class="p">),</span>   
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Simulator gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;simulator&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
+
+    <span class="c1">//--------------------------------</span>
+    <span class="c1">// Saman gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;saman&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;merchant-id&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.org/result&#39;</span>
+    <span class="p">),</span>
+
+    <span class="c1">// Pay gateway</span>
+    <span class="c1">//--------------------------------</span>
+    <span class="s1">&#39;pay&#39;</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span>
+        <span class="s1">&#39;api&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;xxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxx&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;callback-url&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://www.example.org/result&#39;</span>
+    <span class="p">)</span>    
 <span class="p">);</span>
 </code></pre></div>
 <ul>
@@ -260,6 +282,8 @@
 <li>درگاه جهان‌پی <code>P_JAHANPAY</code></li>
 <li>درگاه پی‌لاین <code>P_PAYLINE</code></li>
 <li>درگاه ایران کیش <code>P_IRANKISH</code></li>
+<li>بانک سامان <code>P_SAMAN</code></li>
+<li>درگاه پی دات آی آر <code>P_PAY</code></li>
 </ul></li>
 <li><p>اگر فایل تنظیمات را در محل پیشفرض قرار ندادید میتوانید، آدرس آن را به عنوان پارامتر دوم در هنگام ساختن کلاس بدهید.</p></li>
 </ul>
