@@ -31,7 +31,7 @@ title: "پکیج PoolPort"
 * بانک ملت ```P_MELLAT```
 * بانک ملی با عنوان سداد ```P_SADAD```
 * بانک صادرات ```P_SADERAT```
-* بانک پارسیان - <span style="color:red">تست نشده</span> ```P_PARSIAN```
+* بانک پارسیان ```P_PARSIAN```
 * بانک پاسارگاد - <span style="color:red">تست نشده</span> ```P_PASARGAD```
 * درگاه زرین پال ```P_ZARINPAL```
 * درگاه جهان‌پی ```P_JAHANPAY```
